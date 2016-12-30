@@ -1,0 +1,18 @@
+group 'design.uranus'
+version '1.0-SNAPSHOT'
+
+jar {
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    manifest {
+        attributes 'Main-Class' : 'design.uranus.study'
+    }
+
+    dependencies {
+        // https://mvnrepository.com/artifact/org.projectlombok/lombok
+        compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+    }
+}
